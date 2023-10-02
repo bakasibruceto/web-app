@@ -7,7 +7,7 @@ $password = $_ENV['DB_PASS'];
 class Database
 {
     private $conn;
-
+    //__construct runs automatically
     public function __construct($host, $dbname, $user, $password)
     {
         try {
@@ -19,6 +19,7 @@ class Database
         }
     }
 
+    //create table from database
     public function createTable($tableName, $sql)
     {
         try {
