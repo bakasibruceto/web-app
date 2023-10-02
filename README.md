@@ -1,9 +1,9 @@
 # Instructions
 create `.env` file and refer to `.env.example`
 
-##SASS
+## SASS
 `choco install sass`
 
-##dotenvphp
+## dotenvphp
 `composer require vlucas/dotenvphp`
 
