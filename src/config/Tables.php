@@ -31,10 +31,10 @@ $sqlAdminTable = "CREATE TABLE IF NOT EXISTS admin (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
-$database->createTable("log", $sqlAdminTable);
+$database->createTable("admin", $sqlAdminTable);
 
 //SuperAdmin Table
-$sqlSuperAdminTable = "CREATE TABLE IF NOT EXISTS admin (
+$sqlSuperAdminTable = "CREATE TABLE IF NOT EXISTS superAdmin (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255),
     email VARCHAR(255),
@@ -42,4 +42,4 @@ $sqlSuperAdminTable = "CREATE TABLE IF NOT EXISTS admin (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
-$database->createTable("log", $sqlSuperAdminTable);
+$database->createTable("superAdmin", $sqlSuperAdminTable);
