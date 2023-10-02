@@ -13,9 +13,10 @@ class Database
         try {
             $this->conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connection Successful";
+            echo "Connection Successful <br><br>";
         } catch (PDOException $e) {
-            echo "Connection Failed: " . $e->getMessage();
+            echo "Connection Failed: " . $e->getMessage()  ."<br><br>";
+            
         }
     }
 
@@ -24,9 +25,9 @@ class Database
     {
         try {
             $this->conn->exec($sql);
-            echo "$tableName Table Created Successfully";
+            echo "$tableName Table Created Successfully <br>";
         } catch (PDOException $e) {
-            echo "Error creating $tableName table: " . $e->getMessage();
+            echo "Error creating $tableName table: " . $e->getMessage() ."<br>";
         }
     }
 }
