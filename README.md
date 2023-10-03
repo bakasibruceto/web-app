@@ -6,6 +6,6 @@ create `.env` file and refer to `.env.example`
 paste to terminal
 `composer require vlucas/phpdotenv`
 ## XAMPP
-`v8.2.4`
+`v8.2.4` https://www.apachefriends.org/
 
 
