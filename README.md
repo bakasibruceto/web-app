@@ -1,7 +1,7 @@
 # Instructions
 create `.env` file and refer to `.env.example`
 ## Dependency
-`Composer`
+`Composer` https://getcomposer.org/
 ## dotenvphp
 paste to terminal
 `composer require vlucas/phpdotenv`
