@@ -1,0 +1,13 @@
+<!-- Rewrite Engine on
+
+# does not apply to exsiting directories, meaning thath if the folder exists on the server then don't change anything and don't run the Rule!
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check for file in directory with .php extenstion
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+# Show
+
+RewriteRule ^() --
