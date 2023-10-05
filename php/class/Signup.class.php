@@ -19,27 +19,25 @@ class Signup extends Database
         $stmt->bindParam(":password", $hashedPassword);
 
 
-        if ($stmt->execute()) {            
-            return true;
-        } else {           
-            return false;
-        }
+        return $stmt->rowCount() === 0;
     }
 
+    protected function checkuser($username, $email)
+    {
+        $query = 'SELECT username FROM user WHERE username = :username OR email = :email;';
+        $stmt = $this->connect()->prepare($query);
+        
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+    
+        if (!$stmt->execute()) {
+            header("location: ../../index.php?error=stmtfailed");
+            exit();
+        }
+    
+        return $stmt->rowCount() === 0;
+    }
 
-    // public function checkuser($username, $email)
-    // {
-    //     $stmt = $this->connect()->prepare('SELECT username FROM user WHERE username = ? OR email = ?;');
+    
 
-    //     if (!$stmt->execute(array($username, $email))) {
-    //         header("location: ../../index.php?error=stmtfailed");
-    //         exit();
-    //     }
-
-    //     if ($stmt->rowCount() > 0) {
-    //         return false;
-    //     } else {
-    //         return true;
-    //     }
-    // }
 }
