@@ -11,14 +11,7 @@ class Database
     private $pass;
 
     //_contruct run a method automatically
-    public function __construct()
-    {
-        $this->host = $_ENV['DB_HOST'];
-        $this->dbname = $_ENV['DB_NAME'];
-        $this->user = $_ENV['DB_USER'];
-        $this->pass = $_ENV['DB_PASS'];
-    }
-
+   
 
     //connect to database
     protected function connect()
@@ -33,8 +26,8 @@ class Database
             return $pdo;
         }
         catch (PDOException $e){
-            // echo "Error: ". $e->getMessage();
-            // die();
+            echo "Error: ". $e->getMessage();
+            die();
         }
 
     }
