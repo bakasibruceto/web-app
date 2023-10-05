@@ -1,4 +1,8 @@
 <?php
+
+
+Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '../../..')->load();
+
 class Database 
 {
     private $host;
@@ -19,18 +23,19 @@ class Database
     //connect to database
     protected function connect()
     {
-        $pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->user, $this->pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $pdo;
-        // try{
-        //     $pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->user, $this->pass);
-        //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //     return $pdo;
-        // }
-        // catch (PDOException $e){
-        //     // echo "Error: ". $e->getMessage();
-        //     die();
-        // }
+        $this->host = $_ENV['DB_HOST'];
+        $this->dbname = $_ENV['DB_NAME'];
+        $this->user = $_ENV['DB_USER'];
+        $this->pass = $_ENV['DB_PASS'];
+        try{
+            $pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->user, $this->pass);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            return $pdo;
+        }
+        catch (PDOException $e){
+            // echo "Error: ". $e->getMessage();
+            // die();
+        }
 
     }
 }
