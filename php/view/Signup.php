@@ -15,17 +15,17 @@
                 <h1>Sign up</h1>
                 <div>
                     <label for="username">username
-                        <input type="text" name="username" required>
+                        <input type="text" name="username">
                     </label>
                     <label for="email">email
                         <input type="text" name="email" required>
                     </label>
                     <label for="password">password
-                        <input type="password" name="password" required>
+                        <input type="password" name="password">
                     </label>
-                    <!-- <label for="password">Re-Enter password
-                        <input type="password" name="repassword" required>
-                    </label> -->
+                    <label for="password">Re-Enter password
+                        <input type="password" name="repassword">
+                    </label>
                     <button type="submit" name="submit">sign up </button>
                 </div>
             
