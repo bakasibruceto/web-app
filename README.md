@@ -1,6 +1,7 @@
-# Instructions
+# Overview
+This project is made using MVC design pattern using `Vanilla php`
 
-## Dependency
+## Dependencies
 `Composer` https://getcomposer.org/
 
 ## dotenvphp
