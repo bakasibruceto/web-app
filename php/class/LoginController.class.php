@@ -1,5 +1,4 @@
 <?php
-
 class LoginController extends Login
 {
     private $username;
@@ -18,13 +17,12 @@ class LoginController extends Login
         }
 
         $this->getUser($this->username, $this->password);
-        
-
+        header("location: ../view/user/user.php");
+        exit();
     }
 
-    //Error Handlers
+    // Error Handlers
     private function emptyInput(){
-        return !empty($this->username) && !empty($this->email) && !empty($this->password);
+        return !empty($this->username) && !empty($this->password);
     }
-    
 }
