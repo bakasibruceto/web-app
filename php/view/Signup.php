@@ -18,7 +18,7 @@
                         <input type="text" name="username">
                     </label>
                     <label for="email">email
-                        <input type="text" name="email" required>
+                        <input type="text" name="email">
                     </label>
                     <label for="password">password
                         <input type="password" name="password">
