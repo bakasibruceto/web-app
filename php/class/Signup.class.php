@@ -22,7 +22,7 @@ class Signup extends Database
         return $stmt->execute();
     }
 
-    protected function checkuser($username, $email)
+    protected function checkUser($username, $email)
     {
         $query = 'SELECT username FROM user WHERE username = :username OR email = :email;';
         $stmt = $this->connect()->prepare($query);

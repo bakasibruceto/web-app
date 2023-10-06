@@ -60,6 +60,6 @@ class SignupController extends Signup
     }
 
     private function checkUserExist(){
-        return $this->checkuser($this->username, $this->password);
+        return $this->checkUser($this->username, $this->password);
     }   
 }
