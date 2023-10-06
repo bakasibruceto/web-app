@@ -1,5 +1,5 @@
 # Overview
-This project is made using `MVC` design pattern using `Vanilla php` in practice of `object-oriented programming`
+This project is made using `MVC` design pattern in practice of `object-oriented programming`
 
 ## Dependencies
 `Composer` https://getcomposer.org/
