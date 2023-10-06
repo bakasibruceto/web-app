@@ -1,6 +1,5 @@
 <?php
 
-
 Dotenv\Dotenv::createImmutable(__DIR__ . '../../..')->load();
 
 class Database 
@@ -9,11 +8,6 @@ class Database
     private $dbname;
     private $user;
     private $pass;
-
-    //_contruct run a method automatically
-   
-
-    //connect to database
     protected function connect()
     {
         $this->host = $_ENV['DB_HOST'];
