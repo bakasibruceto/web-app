@@ -18,8 +18,8 @@ class Signup extends Database
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":password", $hashedPassword);
 
-
-        return $stmt->rowCount() === 0;
+   
+        return $stmt->execute();
     }
 
     protected function checkuser($username, $email)
