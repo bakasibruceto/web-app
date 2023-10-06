@@ -16,28 +16,29 @@ class SignupController extends Signup
     }
 
     public function signupUser() {
-        if(!$this->emptyInput()){
-            header("location: ../view/Signup.php?error=emptyinput");
-            exit();
-        }
-        if(!$this->invalidUsername()){
-            header("location: ../view/Signup.php?error=username");
-            exit();
-        }
-        if(!$this->invalidEmail()){
-            header("location: ../view/Signup.php?error=email");
-            exit();
-        }
-        if(!$this->passwordMatch()){
-            header("location: ../view/Signup.php?error=password");
-            exit();
-        }
-        if(!$this->checkUserExist()){
-            header("location: ../view/Signup.php?error=userExist");
-            exit();
-        }
+        $error = null;
 
+        if (!$this->emptyInput()) {
+            $error = "emptyinput";
+        } elseif (!$this->invalidUsername()) {
+            $error = "username";
+        } elseif (!$this->invalidEmail()) {
+            $error = "email";
+        } elseif (!$this->passwordMatch()) {
+            $error = "password";
+        } elseif (!$this->checkUserExist()) {
+            $error = "userExist";
+        }
+    
+        if ($error !== null) {
+            header("location: ../view/Signup.php?error=$error");
+            exit();
+        }
+    
         $this->setUser($this->username, $this->email, $this->password);
+        header("location: ../view/Login.php");
+        exit();
+    
 
     }
 
