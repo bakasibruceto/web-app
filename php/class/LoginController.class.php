@@ -1,4 +1,4 @@
-<?
+<?php
 
 class LoginController extends Login
 {
@@ -8,15 +8,23 @@ class LoginController extends Login
     public function __construct($username, $password)
     {
         $this->username = $username;
-        $this->$password = $password;
+        $this->password = $password;
     }
 
-    public function userLogin (){
-        //Check for Errors
+    public function loginUser() {
+        if(!$this->emptyInput()){
+            header("location: ../view/login.php?error=emptyinput");
+            exit();
+        }
 
+        $this->getUser($this->username, $this->password);
         
-        $this->setLogin($this->username, $this->password);
+
     }
 
-    // Error Handlers
+    //Error Handlers
+    private function emptyInput(){
+        return !empty($this->username) && !empty($this->email) && !empty($this->password);
+    }
+    
 }
