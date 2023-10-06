@@ -1,7 +1,7 @@
 <?php
 
 
-Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '../../..')->load();
+Dotenv\Dotenv::createImmutable(__DIR__ . '../../..')->load();
 
 class Database 
 {
