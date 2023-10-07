@@ -11,7 +11,7 @@ Source: https://dev.to/walternascimentobarroso/dotenv-in-php-45mn
 ## PHPMailer
 paste to terminal
 `composer require phpmailer/phpmailer`<br /><br />
-Source: https://github.com/PHPMailer/PHPMailer#phpmailer--a-full-featured-email-creation-and-transfer-class-for-php
+Source: https://github.com/PHPMailer/PHPMailer
 ## XAMPP
 `v8.2.4` <br /><br />
 Source: https://www.apachefriends.org/
