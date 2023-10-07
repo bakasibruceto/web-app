@@ -17,7 +17,7 @@ class LoginController extends Login
         }
 
         $this->getUser($this->username, $this->password);
-        header("location: ../view/user/user.php");
+      
         exit();
     }
 
@@ -25,4 +25,5 @@ class LoginController extends Login
     private function emptyInput(){
         return !empty($this->username) && !empty($this->password);
     }
+
 }
