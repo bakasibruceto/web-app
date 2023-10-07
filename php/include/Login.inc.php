@@ -1,7 +1,5 @@
 <?php
 require '../../vendor/autoload.php';
-
-
 if(isset($_POST['submit'])){
     
     // Grab data
@@ -16,7 +14,7 @@ if(isset($_POST['submit'])){
     $login->loginUser();
 
     // Back to Frontpage
-    header("location: ../view/user/user.php");
+    header("location: ../view/login.php");
 
 
 }
