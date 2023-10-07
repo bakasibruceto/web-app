@@ -1,5 +1,6 @@
 <?php
 require '../../vendor/autoload.php';
+
 if(isset($_POST['submit'])){
     
     // Grab data
@@ -7,7 +8,6 @@ if(isset($_POST['submit'])){
     $email = $_POST["email"];
     $password = $_POST["password"];
     $repassword = $_POST["repassword"];
-
 
     require_once "../class/Database.class.php";
     require_once "../class/Signup.class.php";
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     $signup->signupUser();
 
     // Back to Frontpage
-    header("location: ../../index.php");
+    header("../../view/Signup.php");
 
 
 }
