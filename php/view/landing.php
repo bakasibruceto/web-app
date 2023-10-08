@@ -13,8 +13,9 @@
         <div class="grid">
             <h1>Landing Page</h1>
             <div>
-                <a href="Login.php"><button>Login</button></a>
-                <a href="Signup.php"><button>Signup</button></a>
+                <a href="Login.php"><button>login</button></a>
+                <a href="Signup.php"><button>signup</button></a>
+                <a href="ForgotPassword.php"><button>forgot password</button></a>
             </div>
         </div>
     </main>
