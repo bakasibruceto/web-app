@@ -32,16 +32,11 @@ class Signup extends Database
         $stmt->bindParam(":email", $email);
 
         if (!$stmt->execute()) {
-            header("location: ../../index.php?error=stmtfailed");
+            header("location: ../../view/Signup.php=stmtfailed");
             exit();
         }
 
-        if ($stmt->rowCount() > 0) {
-            return false;
-        }
-
-
-        return true;
+        return $stmt->rowCount() === 0;
     }
 
 
