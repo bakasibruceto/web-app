@@ -35,7 +35,17 @@ $sqlSuperAdminTable = "CREATE TABLE IF NOT EXISTS superAdmin (
     FOREIGN KEY (account_id) REFERENCES account(id)
 )";
 
-$sql = [$sqlAccountsTable, $sqlLogsTable, $sqlAdminTable, $sqlSuperAdminTable, $sqlUserTable ];
+$sqlOtpTable = "CREATE TABLE IF NOT EXISTS OTP(
+    id INT AUTO_INCREMENT PRIMAY KEY,
+    account_id INT,
+    otp_code VARCHAR(6),
+    is_used BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expired_at TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES account(id)
+)";
+
+$sql = [$sqlAccountsTable, $sqlLogsTable, $sqlOtpTable, $sqlAdminTable, $sqlSuperAdminTable, $sqlUserTable ];
 
 $database = new Query();
 
