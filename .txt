@@ -1,0 +1,1 @@
+"select log.logid, user.name, log.logindate from log inner join user on user.userid = log.userid order by log.logid;"
