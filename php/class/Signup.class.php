@@ -5,9 +5,9 @@ class Signup extends Database
 
     public function setUser($username, $email, $password)
     {
-
+        $pdo = $this->connect();
         $query = "INSERT INTO account (username, email, password) VALUES (:username, :email, :password)";
-        $stmt = $this->connect()->prepare($query);
+        $stmt = $pdo->prepare($query);
 
         if (!$stmt) {
             return false;
@@ -18,9 +18,28 @@ class Signup extends Database
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":password", $hashedPassword);
 
+        if (!$stmt->execute()) {
+            return false;
+        }
 
-        return $stmt->execute();
+        // Get the last inserted ID (assuming 'id' is an auto-increment primary key)
+        $lastInsertId = $pdo->lastInsertId();
+
+        // Now, insert the user into the 'user' table with the corresponding 'account_id'
+        $query = "INSERT INTO user (account_id) VALUES (:account_id)";
+        $stmt = $pdo->prepare($query);
+
+        // Bind the 'account_id' to the new statement
+        $stmt->bindParam(":account_id", $lastInsertId);
+
+        // Execute the INSERT query for the 'user' table
+        if (!$stmt->execute()) {
+            return false;
+        }
+
+        return true;
     }
+
 
     protected function checkUser($username, $email)
     {
