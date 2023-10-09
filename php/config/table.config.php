@@ -50,17 +50,18 @@ $sqlSuperAdminTable = "CREATE TABLE IF NOT EXISTS superAdmin (
     FOREIGN KEY (account_id) REFERENCES account(id) ON DELETE CASCADE ON UPDATE CASCADE
 )";
 
-// $sqlOtpTable = "CREATE TABLE IF NOT EXISTS OTP(
-//     id INT AUTO_INCREMENT PRIMAY KEY,
-//     account_id INT,
-//     otp_code VARCHAR(6),
-//     is_used BOOLEAN DEFAULT FALSE,
-//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//     expired_at TIMESTAMP,
-//     FOREIGN KEY (account_id) REFERENCES account(id) ON DELETE CASCADE ON UPDATE CASCADE
-// )";
+$sqlOtpTable = "CREATE TABLE IF NOT EXISTS OTP (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT,
+    otp_code VARCHAR(6),
+    is_used BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expired_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES account(id) ON DELETE CASCADE ON UPDATE CASCADE
+)";
 
-$sql = [$sqlAccountsTable, $sqlLogsTable, $sqlAdminTable, $sqlSuperAdminTable, $sqlUserTable ];
+
+$sql = [$sqlAccountsTable, $sqlLogsTable, $sqlOtpTable, $sqlAdminTable, $sqlSuperAdminTable, $sqlUserTable ];
 
 $database = new Query();
 
