@@ -18,6 +18,7 @@ class SignupController extends Signup
     public function signupUser() {
         $error = null;
 
+        // check for errors
         if (!$this->emptyInput()) {
             $error = "emptyinput";
         } elseif (!$this->invalidUsername()) {
@@ -42,7 +43,7 @@ class SignupController extends Signup
 
     }
 
-    //Add Error Handlers
+    //Error Handlers
     private function emptyInput(){
         return !empty($this->username) && !empty($this->email) && !empty($this->password) && !empty($this->repassword);
     }

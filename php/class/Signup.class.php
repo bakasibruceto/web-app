@@ -14,25 +14,40 @@ class Signup extends Database
         }
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // Bind values to 'account'
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":password", $hashedPassword);
-
+        
+        // Query for the 'account' table
         if (!$stmt->execute()) {
             return false;
         }
 
-        // Get the last inserted ID (assuming 'id' is an auto-increment primary key)
+        // Get the last inserted ID 
         $lastInsertId = $pdo->lastInsertId();
 
-        // Now, insert the user into the 'user' table with the corresponding 'account_id'
+        // Insert user into the 'user' table 
         $query = "INSERT INTO user (account_id) VALUES (:account_id)";
         $stmt = $pdo->prepare($query);
 
-        // Bind the 'account_id' to the new statement
+        // Bind 'account_id' to stmt
         $stmt->bindParam(":account_id", $lastInsertId);
 
-        // Execute the INSERT query for the 'user' table
+        // Query for the 'user' table
+        if (!$stmt->execute()) {
+            return false;
+        }
+
+        // Insert user into the 'otp' table 
+        $query = "INSERT INTO otp (account_id) VALUES (:account_id)";
+        $stmt = $pdo->prepare($query);
+
+        // Bind the 'account_id' to the stmt
+        $stmt->bindParam(":account_id", $lastInsertId);
+
+        // Query for the 'otp' table
         if (!$stmt->execute()) {
             return false;
         }
@@ -51,14 +66,10 @@ class Signup extends Database
         $stmt->bindParam(":email", $email);
 
         if (!$stmt->execute()) {
-            header("location: ../../view/Signup.php=stmtfailed");
+            header("location: ../../view/Signup.php?=stmtfailed");
             exit();
         }
 
         return $stmt->rowCount() === 0;
     }
-
-
-
-
 }

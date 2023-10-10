@@ -15,7 +15,7 @@ class LoginController extends Login
             header("location: ../view/login.php?error=emptyinput");
             exit();
         }
-
+        // from login class
         $this->getUser($this->username, $this->password);
       
         exit();
