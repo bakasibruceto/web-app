@@ -1,7 +1,13 @@
 <?php
 
 class ForgotPasswordController extends ForgotPassword{
-    public function sendEmail(){
 
+    private $email;
+
+    public function __construct($email) {
+        $this->email = $email;
+    }
+    public function sendOTP(){
+        $this->setOTP($this->email);
     }
 }

@@ -13,9 +13,6 @@
         <div class="grid">
             <h1>Forgot Password</h1>
             <form action="../include/ForgotPassword.inc.php" method="POST">
-                <label for="username">username
-                    <input type="text" name="username">
-                </label>
                 <label for="email">email
                     <input type="text" name="email">
                 </label>
