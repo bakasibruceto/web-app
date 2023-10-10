@@ -15,6 +15,11 @@ class SendOtpChangePassword extends ForgotPasswordController
 {
     private $SmtpEmail;
     private $SmtpPassword;
+    public function __construct($SmtpEmail, $SmtpPassword){
+        $this->SmtpEmail = $SmtpEmail;
+        $this->SmtpPassword = $SmtpPassword;
+    }
+    
     public function SendOtp($username, $email)
     {
         $mail = new PHPMailer(true);
